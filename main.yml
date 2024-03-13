@@ -1,6 +1,6 @@
 - name: My Setup
   hosts: localhost
-g  connection: local # no ssh
+  connection: local # no ssh
   gather_facts: false
   become: true
   tasks:
