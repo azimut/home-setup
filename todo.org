@@ -1,0 +1,20 @@
+* enable dnscrypt-proxy
+
+- https://medium.com/@thomasoca/additional-configuration-to-use-dnscrypt-proxy-with-systemd-resolved-e7a96bdb6c9e
+  https://www.ctrl.blog/entry/resolvconf-tutorial.html
+  - install dnscrypt-proxy
+  - write a new resolv.conf with "nameserver 127.0.2.1"
+  - disable dns from NetworkManager
+  - restart NetworkManager
+  - disable systemd-resolved
+
+* systemd - disable
+
+- tracker daemon https://stackoverflow.com/questions/72827703/how-to-disable-file-indexing-in-ubuntu-22-04-tracker3
+  $ sudo apt-mark hold tracker
+  $ sudo apt-mark hold tracker-extract
+  $ sudo apt-mark hold tracker-miner-fs
+  $ sudo chmod -x /usr/libexec/tracker-extract-3
+  $ sudo chmod -x /usr/libexec/tracker-miner-fs-3
+  $ tracker3 reset --filesystem --rss # Clean all database
+  $ tracker3 daemon --terminate
