@@ -78,6 +78,8 @@
           - bat
           - jq
           - zsh
+          - zsh-autosuggestions
+          - zsh-syntax-highlighting
           - adb
           - imagemagick
           - tmux
