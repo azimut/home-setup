@@ -13,8 +13,8 @@
         group: root
         mode: '0644'
       with_items:
-        - etc/NetworkManager/conf.d/disable-interfaces.conf
-        - etc/NetworkManager/conf.d/disable-systemd-resolved.conf
+        - etc/NetworkManager/conf.d/disable-interfaces.conf       # disable onboard wifi (damaged antenna)
+        - etc/NetworkManager/conf.d/disable-systemd-resolved.conf # use dnscrypt instead
       notify:
         - Restart NetworkManager
 
@@ -25,8 +25,27 @@
         enabled: false
       with_items:
         - switcheroo-control # dbus, 2 gpu cars
-        - iio-sensor-proxy # dbus, sensors (light,rotation,speed)
-        - ModemManager # 2g/3g/4g modems
+        - iio-sensor-proxy   # dbus, sensors (light,rotation,speed)
+        - ModemManager       # 2g/3g/4g modems
+
+    - name: tracker | hold packages
+      ansible.builtin.dpkg_selections:
+        name: "{{ item }}"
+        selection: hold
+      with_items:
+        - tracker
+        - tracker-extract
+        - tracker-miner-fs
+
+    - name: tracker | remove executions permissions
+      ansible.builtin.file:
+        path: "{{ item }}"
+        owner: root
+        group: root
+        mode: '0644'
+      with_items:
+        - /usr/libexec/tracker-extract-3
+        - /usr/libexec/tracker-miner-fs-3
 
     - name: Install emacs snap
       community.general.snap:
@@ -36,10 +55,10 @@
     - name: Uninstall Ubuntu package # https://www.dbi-services.com/blog/de-ubuntu-ubuntu/
       ansible.builtin.apt:
         name:
-          - ubuntu-report # report metrics to ubuntu
+          - ubuntu-report      # report metrics to ubuntu
           - popularity-contest # sends stats to ubuntu
-          - whoopsie # sends crash reports
-          - apport # collects data on crash
+          - whoopsie           # sends crash reports
+          - apport             # collects data on crash
         state: absent
         purge: true
 
@@ -54,6 +73,7 @@
           - dnscrypt-proxy
           - tor
           - silversearcher-ag
+          - unrar
           - htop
           - bat
           - jq
@@ -68,11 +88,11 @@
           - newsboat
           - fonts-firacode
           - libsqlite3-dev # for emacs/magit?
-          - gnome-tweaks # for mayus/ctrl swap
+          - gnome-tweaks   # for mayus/ctrl swap
           - pavucontrol
           - awesome
           - mumble-server
-          - mumble # both for https://github.com/pzmarzly/mic_over_mumble
+          - mumble         # both for https://github.com/pzmarzly/mic_over_mumble
           - xclip
           - sxiv
           - mpv
