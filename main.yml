@@ -52,6 +52,7 @@
           - git
           - git-lfs
           - dnscrypt-proxy
+          - tor
           - silversearcher-ag
           - htop
           - bat
@@ -70,6 +71,8 @@
           - gnome-tweaks # for mayus/ctrl swap
           - pavucontrol
           - awesome
+          - mumble-server
+          - mumble # both for https://github.com/pzmarzly/mic_over_mumble
           - xclip
           - sxiv
           - mpv
