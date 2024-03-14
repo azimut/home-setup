@@ -70,6 +70,7 @@
           - bear
           - git
           - git-lfs
+          - adb
           - dnscrypt-proxy
           - tor
           - silversearcher-ag
@@ -77,10 +78,10 @@
           - htop
           - bat
           - jq
+          - fzf
           - zsh
           - zsh-autosuggestions
           - zsh-syntax-highlighting
-          - adb
           - imagemagick
           - tmux
           - tree
@@ -88,6 +89,8 @@
           - docker-buildx
           - whois
           - newsboat
+          - shfmt
+          - shellcheck
           - fonts-firacode
           - libsqlite3-dev # for emacs/magit?
           - gnome-tweaks   # for mayus/ctrl swap
@@ -98,6 +101,12 @@
           - xclip
           - sxiv
           - mpv
+
+    - name: Disable mumble-server service
+      ansible.builtin.systemd_service:
+        name: mumble-server
+        state: stopped
+        enabled: false
 
   handlers:
     - name: Restart NetworkManager
