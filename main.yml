@@ -71,6 +71,7 @@
           - git
           - git-lfs
           - adb
+          - python3-pip
           - dnscrypt-proxy
           - tor
           - silversearcher-ag
@@ -96,6 +97,7 @@
           - gnome-tweaks   # for mayus/ctrl swap
           - pavucontrol
           - awesome
+          - gromit-mpx     # drawing
           - mumble-server
           - mumble         # both for https://github.com/pzmarzly/mic_over_mumble
           - xclip
