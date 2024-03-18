@@ -104,6 +104,7 @@
           - pavucontrol
           - awesome
           - gromit-mpx     # drawing
+          - calibre
           - mumble-server
           - mumble         # both for https://github.com/pzmarzly/mic_over_mumble
           - xclip
