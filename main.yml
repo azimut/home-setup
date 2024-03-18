@@ -18,6 +18,12 @@
       notify:
         - Restart NetworkManager
 
+    - name: Pulseaudio | disable autoswitch of output port
+      ansible.builtin.replace:
+        path: /etc/pulse/default.pa
+        regexp: '^(load-module module-switch-on-port-available)$'
+        replace: '# \1'
+
     - name: Disable some default services
       ansible.builtin.systemd_service:
         name: "{{ item }}"
