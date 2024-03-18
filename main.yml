@@ -81,6 +81,7 @@
           - dnscrypt-proxy
           - tor
           - silversearcher-ag
+          - sqlite3
           - unrar
           - htop
           - bat
