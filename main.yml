@@ -78,11 +78,14 @@
           - git-lfs
           - adb
           - python3-pip
+          - openjdk-21-jre
+          - 7zip
+          - p7zip-rar
+          - unrar
           - dnscrypt-proxy
           - tor
           - silversearcher-ag
           - sqlite3
-          - unrar
           - htop
           - bat
           - jq
