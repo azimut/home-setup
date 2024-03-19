@@ -80,7 +80,7 @@
           - python3-pip
           - openjdk-21-jre
           - 7zip
-          - p7zip-rar
+          - p7zip-rar # to unzip password protected files
           - unrar
           - dnscrypt-proxy
           - tor
