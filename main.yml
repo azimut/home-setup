@@ -78,6 +78,7 @@
           - git-lfs
           - adb
           - python3-pip
+          - golang-1.21
           - openjdk-21-jre
           - 7zip
           - p7zip-rar # to unzip password protected files

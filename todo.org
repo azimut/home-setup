@@ -1,3 +1,6 @@
+* youtube-dl
+- install with pip3
+- symlink ~/.local/bin/yt-dlp to youtube-dl
 * man colors
 - https://unix.stackexchange.com/questions/108699/documentation-on-less-termcap-variables
 - https://www.tecmint.com/view-colored-man-pages-in-linux/
