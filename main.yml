@@ -134,9 +134,20 @@
 
     - name: symlink youtube-dl
       file:
-        src: ~/.local/bin/yt-dlp
-        dest: ~/.local/bin/youtube-dl
+        src: /home/sendai/.local/bin/yt-dlp
+        dest: /home/sendai/.local/bin/youtube-dl
+        owner: sendai
+        group: sendai
         state: link
+
+    - name: install diffstatstic
+      quera.github.install_from_github:
+        repo: Wilfred/difftastic
+        asset_regex: difft-x86_64-unknown-linux-gnu\.tar\.gz
+        move_rules:
+          - src_regex: difft
+            dst: /home/sendai/bin
+            mode: 0755
 
   handlers:
     - name: Restart NetworkManager
