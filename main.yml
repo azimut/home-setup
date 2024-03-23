@@ -94,6 +94,7 @@
           - htop
           - bat
           - jq
+          - cloc
           - fzf
           - zsh
           - zsh-autosuggestions
