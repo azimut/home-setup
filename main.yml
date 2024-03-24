@@ -96,6 +96,7 @@
           - jq
           - cloc
           - fzf
+          - ncal
           - zsh
           - zsh-autosuggestions
           - zsh-syntax-highlighting
