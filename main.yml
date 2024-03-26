@@ -152,6 +152,27 @@
             dst: /home/sendai/bin
             mode: 0755
 
+    - name: install cli-view
+      quera.github.install_from_github:
+        repo: azimut/cli-view
+        asset_regex: cli-view_.*_linux_amd64\.tar\.gz
+        move_rules:
+          - src_regex: twitterview
+            dst: /home/sendai/bin
+            mode: 0755
+          - src_regex: hackerview
+            dst: /home/sendai/bin
+            mode: 0755
+          - src_regex: fourchanview
+            dst: /home/sendai/bin
+            mode: 0755
+          - src_regex: vichanview
+            dst: /home/sendai/bin
+            mode: 0755
+          - src_regex: redditview
+            dst: /home/sendai/bin
+            mode: 0755
+
   handlers:
     - name: Restart NetworkManager
       ansible.builtin.service:
