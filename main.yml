@@ -81,6 +81,7 @@
         name:
           - build-essential
           - bear
+          - cmake
           - git
           - git-lfs
           - adb
