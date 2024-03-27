@@ -176,6 +176,34 @@
             dst: /home/sendai/bin
             mode: 0755
 
+    - name: install ipickme
+      quera.github.install_from_github:
+        repo: azimut/ipickme
+        asset_regex: ipickme
+        tag: 'v1.0.1'
+        move_rules:
+          - src_regex: ipickme
+            dst: /home/sendai/bin
+            mode: 0755
+
+    - name: install 4chan-rss
+      quera.github.install_from_github:
+        repo: azimut/4chan-rss
+        asset_regex: 4chan-rss_.*_linux_amd64\.tar\.gz
+        move_rules:
+          - src_regex: 4chan-rss
+            dst: /home/sendai/bin
+            mode: 0755
+
+    - name: install twitch-rss
+      quera.github.install_from_github:
+        repo: azimut/twitch-rss
+        asset_regex: twitch-rss_.*_linux_amd64\.tar\.gz
+        move_rules:
+          - src_regex: twitch-rss
+            dst: /home/sendai/bin
+            mode: 0755
+
   handlers:
     - name: Restart NetworkManager
       ansible.builtin.service:
