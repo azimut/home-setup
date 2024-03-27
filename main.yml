@@ -204,6 +204,16 @@
             dst: /home/sendai/bin
             mode: 0755
 
+    - name: install exercism
+      quera.github.install_from_github:
+        repo: exercism/cli
+        asset_regex: exercism-.*-linux-x86_64\.tar\.gz
+        move_rules:
+          - src_regex: exercism
+            dst: /home/sendai/bin
+            mode: 0755
+
+
   handlers:
     - name: Restart NetworkManager
       ansible.builtin.service:
