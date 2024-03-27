@@ -58,9 +58,12 @@
         name: emacs
         classic: true
 
-    - name: Install skype snap
+    - name: Install other snaps
       community.general.snap:
-        name: skype
+        name: "{{ item }}"
+      with_items:
+        - skype
+        - chromium
 
     - name: Uninstall Ubuntu package # https://www.dbi-services.com/blog/de-ubuntu-ubuntu/
       ansible.builtin.apt:
