@@ -1,0 +1,27 @@
+- name: Install packages
+  ansible.builtin.apt:
+    update_cache: yes
+    name:
+      - purple-discord
+      - telegram-purple
+      - znc
+      - bitlbee
+      - weechat
+
+# https://www.postgresql.org/docs/current/manage-ag-templatedbs.html
+# Delete template[01] ?
+
+# https://github.com/stil/zlog-sql/
+
+- name: create irclogs db
+  become_user: postgres
+  community.postgresql.postgresql_db:
+    name: irclogs
+    comment: used by my znc to log chats
+
+- name: create logger user
+  become_user: postgres
+  community.postgresql.postgresql_user:
+    db: irclogs
+    name: logger
+    password: ""

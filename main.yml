@@ -3,6 +3,17 @@
   connection: local # no ssh
   gather_facts: false
   become: true
+  roles:
+
+    - role: postgresql
+      tags: [postgresql,postgres]
+    - role: chatting
+      tags: [chatting]
+    - role: sleeper
+      tags: [sleeper]
+    - role: reader
+      tags: [reader,rss]
+
   tasks:
 
     - name: Copy NetworkManager conf.d files
@@ -82,6 +93,7 @@
           - build-essential
           - bear
           - cmake
+          - libtool # for automake autoconf
           - git
           - git-lfs
           - adb
@@ -110,11 +122,11 @@
           - docker.io
           - docker-buildx
           - whois
-          - newsboat
           - shfmt
           - shellcheck
           - fonts-firacode
           - libsqlite3-dev # for emacs/magit?
+          - libvterm-dev   # for emacs/vterm
           - gnome-tweaks   # for mayus/ctrl swap
           - pavucontrol
           - awesome
@@ -136,8 +148,11 @@
 
     - name: install pip packages
       ansible.builtin.pip:
-        name: yt-dlp
+        name: "{{ item }}"
         extra_args: --user
+      with_items:
+        - streamlink
+        - yt-dlp
 
     - name: symlink youtube-dl
       file:
@@ -156,27 +171,6 @@
             dst: /home/sendai/bin
             mode: 0755
 
-    - name: install cli-view
-      quera.github.install_from_github:
-        repo: azimut/cli-view
-        asset_regex: cli-view_.*_linux_amd64\.tar\.gz
-        move_rules:
-          - src_regex: twitterview
-            dst: /home/sendai/bin
-            mode: 0755
-          - src_regex: hackerview
-            dst: /home/sendai/bin
-            mode: 0755
-          - src_regex: fourchanview
-            dst: /home/sendai/bin
-            mode: 0755
-          - src_regex: vichanview
-            dst: /home/sendai/bin
-            mode: 0755
-          - src_regex: redditview
-            dst: /home/sendai/bin
-            mode: 0755
-
     - name: install ipickme
       quera.github.install_from_github:
         repo: azimut/ipickme
@@ -187,23 +181,6 @@
             dst: /home/sendai/bin
             mode: 0755
 
-    - name: install 4chan-rss
-      quera.github.install_from_github:
-        repo: azimut/4chan-rss
-        asset_regex: 4chan-rss_.*_linux_amd64\.tar\.gz
-        move_rules:
-          - src_regex: 4chan-rss
-            dst: /home/sendai/bin
-            mode: 0755
-
-    - name: install twitch-rss
-      quera.github.install_from_github:
-        repo: azimut/twitch-rss
-        asset_regex: twitch-rss_.*_linux_amd64\.tar\.gz
-        move_rules:
-          - src_regex: twitch-rss
-            dst: /home/sendai/bin
-            mode: 0755
 
     - name: install exercism
       quera.github.install_from_github:
@@ -213,7 +190,6 @@
           - src_regex: exercism
             dst: /home/sendai/bin
             mode: 0755
-
 
   handlers:
     - name: Restart NetworkManager
