@@ -31,6 +31,13 @@
       - src_regex: redditview
         dst: /home/sendai/bin
         mode: 0755
+      - src_regex: lobstersview
+        dst: /home/sendai/bin
+        mode: 0755
+      - src_regex: discourseview
+        dst: /home/sendai/bin
+        mode: 0755
+
 
 - name: install 4chan-rss
   quera.github.install_from_github:
