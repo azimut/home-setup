@@ -148,6 +148,7 @@
         enabled: false
 
     - name: install pip packages
+      tags: [youtube-dl,yt-dlp]
       ansible.builtin.pip:
         name: "{{ item }}"
         extra_args: --user
@@ -156,6 +157,7 @@
         - yt-dlp
 
     - name: symlink youtube-dl
+      tags: [youtube-dl,yt-dlp]
       file:
         src: /home/sendai/.local/bin/yt-dlp
         dest: /home/sendai/.local/bin/youtube-dl
@@ -163,7 +165,8 @@
         group: sendai
         state: link
 
-    - name: install diffstatstic
+    - name: install difftastic
+      tags: [difftastic,github]
       quera.github.install_from_github:
         repo: Wilfred/difftastic
         asset_regex: difft-x86_64-unknown-linux-gnu\.tar\.gz
@@ -177,7 +180,7 @@
       quera.github.install_from_github:
         repo: azimut/ipickme
         asset_regex: ipickme
-        tag: 'v1.0.1'
+        tag: 'v1.0.1' # needed due pre-release
         move_rules:
           - src_regex: ipickme
             dst: /home/sendai/bin
