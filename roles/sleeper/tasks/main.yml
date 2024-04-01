@@ -1,25 +1,10 @@
-- name: create activity db
-  become_user: postgres
-  community.postgresql.postgresql_db:
-    name: activity
-    comment: used by my sleeper program
-
-- name: create logger user
-  become_user: postgres
-  community.postgresql.postgresql_user:
-    db: activity
-    name: sleeper
-    password: ""
-    expires: infinity
+- name: Install packages
+  ansible.builtin.apt:
+    update_cache: yes
+    name:
+      - libupower-glib-dev
+      - libx11-dev
+      - libxext-dev
+      - libsqlite3-dev
 
 # TODO: install sleeper
-# TODO: create activity.events table...
-
-- name: grant privs to user logger
-  become_user: postgres
-  community.postgresql.postgresql_privs:
-    db: activity
-    privs: SELECT,INSERT,UPDATE
-    objs: events
-    roles: sleeper
-    grant_option: false

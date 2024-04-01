@@ -39,7 +39,6 @@
         dst: /home/sendai/bin
         mode: 0755
 
-
 - name: install 4chan-rss
   tags: [4chan-rss]
   quera.github.install_from_github:
