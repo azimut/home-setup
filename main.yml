@@ -105,6 +105,7 @@
           - unrar
           - dnscrypt-proxy
           - tor
+          - nmap
           - silversearcher-ag
           - sqlite3
           - htop
