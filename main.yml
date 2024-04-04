@@ -156,6 +156,7 @@
       with_items:
         - streamlink
         - yt-dlp
+        - psutil  # for pdfkeep.py
 
     - name: symlink youtube-dl
       tags: [youtube-dl,yt-dlp]
