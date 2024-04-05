@@ -106,6 +106,7 @@
           - dnscrypt-proxy
           - tor
           - nmap
+          - rtorrent
           - silversearcher-ag
           - sqlite3
           - htop
