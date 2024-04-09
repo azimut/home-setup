@@ -209,6 +209,16 @@
             dst: /home/sendai/bin
             mode: 0755
 
+    - name: install pup
+      tags: [pup,github]
+      quera.github.install_from_github:
+        repo: ericchiang/pup
+        asset_regex: pup_.*_linux_amd64\.zip
+        move_rules:
+          - src_regex: pup
+            dst: /home/sendai/bin
+            mode: 0755
+
   handlers:
     - name: Restart NetworkManager
       ansible.builtin.service:
