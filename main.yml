@@ -227,7 +227,7 @@
         move_rules:
           - src_regex: ffbar
             dst: /home/sendai/bin
-            mode: 075
+            mode: 0755
 
   handlers:
     - name: Restart NetworkManager
