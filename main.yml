@@ -219,6 +219,16 @@
             dst: /home/sendai/bin
             mode: 0755
 
+    - name: install ffbar
+      tags: [ffbar,github]
+      quera.github.install_from_github:
+        repo: azimut/ffbar
+        asset_regex: ffbar
+        move_rules:
+          - src_regex: ffbar
+            dst: /home/sendai/bin
+            mode: 075
+
   handlers:
     - name: Restart NetworkManager
       ansible.builtin.service:
