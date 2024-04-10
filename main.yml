@@ -104,6 +104,7 @@
           - p7zip-rar # to unzip password protected files
           - unrar
           - dnscrypt-proxy
+          - socat
           - tor
           - nmap
           - rtorrent
