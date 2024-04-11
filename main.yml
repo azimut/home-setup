@@ -132,6 +132,7 @@
           - libvterm-dev   # for emacs/vterm
           - gnome-tweaks   # for mayus/ctrl swap
           - pavucontrol
+          - pulseeffects
           - abiword
           - awesome
           - gromit-mpx     # drawing
