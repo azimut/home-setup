@@ -91,7 +91,7 @@
         update_cache: yes
         name:
           - build-essential
-          - bear
+          - bear    # for C lsp
           - cmake
           - libtool # for automake autoconf
           - git
