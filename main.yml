@@ -120,6 +120,7 @@
           - zsh-autosuggestions
           - zsh-syntax-highlighting
           - imagemagick
+          - gifsicle
           - tmux
           - tree
           - docker.io
