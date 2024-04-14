@@ -122,6 +122,7 @@
           - imagemagick
           - gifsicle
           - tmux
+          - parallel
           - tree
           - docker.io
           - docker-buildx
