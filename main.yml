@@ -90,6 +90,9 @@
       ansible.builtin.apt:
         update_cache: yes
         name:
+          - texlive-latex-base  # pdflatex
+          - texlive-latex-extra
+          - texlive-fonts-extra # fontawesome
           - build-essential
           - bear    # for C lsp
           - cmake
