@@ -90,6 +90,7 @@
       ansible.builtin.apt:
         update_cache: yes
         name:
+          - libgtkglext1-dev    # factor language
           - texlive-latex-base  # pdflatex
           - texlive-latex-extra
           - texlive-fonts-extra # fontawesome
@@ -116,6 +117,8 @@
           - htop
           - bat
           - jq
+          - gawk
+          - bats
           - xmlstarlet
           - cloc
           - fzf
@@ -128,6 +131,7 @@
           - tmux
           - parallel
           - tree
+          - qemu-system
           - docker.io
           - docker-buildx
           - whois
