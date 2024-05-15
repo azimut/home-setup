@@ -190,6 +190,16 @@
             dst: /home/sendai/bin
             mode: 0755
 
+    - name: install freeze
+      tags: [freeze,github]
+      quera.github.install_from_github:
+        repo: charmbracelet/freeze
+        asset_regex: freeze_.*_Linux_x86_64\.tar\.gz
+        move_rules:
+          - src_regex: freeze
+            dst: /home/sendai/bin
+            mode: 0755
+
     - name: install ipickme
       tags: [ipickme,github]
       quera.github.install_from_github:
