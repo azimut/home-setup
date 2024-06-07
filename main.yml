@@ -1,4 +1,4 @@
-- name: My Setup
+- name: root setup
   hosts: localhost
   connection: local # no ssh
   gather_facts: false
@@ -161,6 +161,19 @@
         state: stopped
         enabled: false
 
+  handlers:
+    - name: Restart NetworkManager
+      ansible.builtin.service:
+        name: NetworkManager
+        state: restarted
+
+- name: non-root setup
+  hosts: localhost
+  connection: local # no ssh
+  gather_facts: false
+
+  tasks:
+
     - name: install pip packages
       tags: [youtube-dl,yt-dlp]
       ansible.builtin.pip:
@@ -250,9 +263,3 @@
           - src_regex: ffbar
             dst: /home/sendai/bin
             mode: 0755
-
-  handlers:
-    - name: Restart NetworkManager
-      ansible.builtin.service:
-        name: NetworkManager
-        state: restarted
