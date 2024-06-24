@@ -100,6 +100,7 @@
           - libtool # for automake autoconf
           - git
           - git-lfs
+          - git-filter-repo # to remove files from history
           - adb
           - python3-pip
           - golang-1.21
@@ -130,6 +131,7 @@
           - gifsicle
           - tmux
           - parallel
+          - datamash
           - tree
           - qemu-system
           - docker.io
@@ -145,6 +147,7 @@
           - pulseeffects
           - abiword
           - awesome
+          - blueman
           - gromit-mpx     # drawing
           - calibre
           - mupdf
