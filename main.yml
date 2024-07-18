@@ -16,6 +16,15 @@
 
   tasks:
 
+    - name: Copy sysctl.d files
+      ansible.builtin.copy:
+        src: files/etc/sysctl.d/20-swappiness.conf
+        dest: /etc/sysctl.d/20-swappiness.conf
+        owner: root
+        group: root
+        mode: '0644'
+      tags: [sysctl]
+
     - name: Copy NetworkManager conf.d files
       ansible.builtin.copy:
         src: "files/{{ item }}"
