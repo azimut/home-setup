@@ -82,7 +82,8 @@
       community.general.snap:
         name: "{{ item }}"
       with_items:
-        - skype
+        # - skype
+        - firefox
         - chromium
 
     - name: Uninstall Ubuntu package # https://www.dbi-services.com/blog/de-ubuntu-ubuntu/
@@ -106,6 +107,7 @@
           - build-essential
           - bear    # for C lsp
           - cmake
+          - errno   # cli "errno" util
           - libtool # for automake autoconf
           - git
           - git-lfs
