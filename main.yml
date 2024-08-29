@@ -131,6 +131,7 @@
           - jq
           - gawk
           - bats
+          - dos2unix
           - xmlstarlet
           - cloc
           - fzf
