@@ -259,6 +259,16 @@
             dst: /home/sendai/bin
             mode: 0755
 
+    - name: install gum
+      tags: [gum,github]
+      quera.github.install_from_github:
+        repo: charmbracelet/gum
+        asset_regex: gum_.*_Linux_x86_64.tar.gz
+        move_rules:
+          - src_regex: gum_.*/gum
+            dst: /home/sendai/bin
+            mode: 0755
+
     - name: install pup
       tags: [pup,github]
       quera.github.install_from_github:
