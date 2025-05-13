@@ -25,6 +25,15 @@
         mode: '0644'
       tags: [sysctl]
 
+    - name: Copy udev/rules files
+      ansible.builtin.copy:
+        src: files/etc/udev/rules.d/99-persistent-net.rules
+        dest: /etc/udev/rules.d/99-persistent-net.rules
+        owner: root
+        group: root
+        mode: '0644'
+      tags: [udev]
+
     - name: Copy NetworkManager conf.d files
       ansible.builtin.copy:
         src: "files/{{ item }}"
@@ -32,6 +41,7 @@
         owner: root
         group: root
         mode: '0644'
+      tags: [networkmanager]
       with_items:
         - etc/NetworkManager/conf.d/disable-interfaces.conf       # disable onboard wifi (damaged antenna)
         - etc/NetworkManager/conf.d/disable-systemd-resolved.conf # use dnscrypt instead
