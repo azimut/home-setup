@@ -119,6 +119,7 @@
           - cmake
           - errno   # cli "errno" util
           - libtool # for automake autoconf
+          - manpages-posix-dev # C header man pages
           - git
           - git-lfs
           - git-filter-repo # to remove files from history
